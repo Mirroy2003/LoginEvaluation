@@ -1,0 +1,109 @@
+.session-modal .modal-content {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    padding: 10px 12px;
+}
+
+.session-modal .modal-body {
+    padding: 14px 16px;
+}
+
+.session-modal-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2c2c2c;
+}
+
+.session-modal-text {
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+.session-modal-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #fff5e5;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    color: #c98a00;
+    flex-shrink: 0;
+}
+
+.session-extend-btn {
+    background: #d39c00;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-weight: 700;
+}
+
+.session-extend-btn:hover {
+    background: #b98600;
+    color: #fff;
+}
+
+.session-toast-container {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 1080;
+}
+
+.session-toast {
+    background: #e9f3ff;
+    border: 2px solid #2f6fb7;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    min-width: 340px;
+    max-width: 420px;
+    padding: 12px 14px 6px 14px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+}
+
+.session-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.session-toast .body {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    color: #1f3f6f;
+    font-size: 0.98rem;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.session-toast .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #dbe9ff;
+    display: grid;
+    place-items: center;
+    color: #1f5fb7;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.session-toast .progress-bar {
+    height: 4px;
+    background: #2f6fb7;
+    border-radius: 0 0 8px 8px;
+    width: 100%;
+}
+
+@media (max-width: 576px) {
+    .session-toast-container { right: 8px; left: 8px; }
+    .session-toast { width: 100%; min-width: auto; }
+}

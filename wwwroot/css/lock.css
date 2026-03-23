@@ -1,0 +1,145 @@
+:root {
+    --lock-red: #941c1c;
+    --lock-bg: #f6f6f6;
+    --lock-card: #ffffff;
+    --lock-border: #e5e5e5;
+    --lock-text: #2c2c2c;
+    --lock-muted: #6b6b6b;
+}
+
+body.lock-page {
+    background: var(--lock-bg);
+    min-height: 100vh;
+}
+
+.lock-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.lock-topbar {
+    background: var(--lock-red);
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    color: #fff;
+}
+
+.lock-logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.lock-help {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #f4f4f4;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    background: rgba(255,255,255,0.1);
+    cursor: pointer;
+}
+
+.lock-shell {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px 72px;
+    overflow: hidden;
+}
+
+.lock-illustration::before,
+.lock-illustration::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    max-width: 520px;
+    height: 280px;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.05), rgba(0,0,0,0));
+    opacity: 0.6;
+}
+
+.lock-illustration::before { left: -8%; }
+.lock-illustration::after { right: -8%; }
+
+.lock-card {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+    width: 100%;
+    background: var(--lock-card);
+    border-radius: 12px;
+    padding: 32px 28px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    border: 1px solid var(--lock-border);
+    text-align: center;
+}
+
+.lock-icon {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background: #e8f0ff;
+    display: grid;
+    place-items: center;
+    color: #2f6fb7;
+    font-size: 42px;
+    margin: 0 auto 16px;
+}
+
+.lock-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--lock-text);
+    margin-bottom: 12px;
+}
+
+.lock-text {
+    color: var(--lock-muted);
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.lock-actions .btn {
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+.lock-institution {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.lock-institution .block {
+    width: 96px;
+    height: 48px;
+    border-radius: 6px;
+    background: #d9d9d9;
+    display: grid;
+    place-items: center;
+    color: #555;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 576px) {
+    .lock-shell { padding: 16px 12px 64px; }
+    .lock-institution { position: static; justify-content: center; margin-top: 12px; }
+    .lock-illustration::before,
+    .lock-illustration::after { display: none; }
+}
+

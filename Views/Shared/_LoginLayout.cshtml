@@ -1,0 +1,43 @@
+@{
+    Layout = null;
+    var bodyClass = ViewData["BodyClass"] as string ?? string.Empty;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LoginEvaluation</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/session-messages.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
+</head>
+<body class="@bodyClass" data-authenticated="@(User?.Identity?.IsAuthenticated == true ? "true" : "false")">
+    @RenderBody()
+
+    <div class="modal fade" id="sessionTimeoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered session-modal">
+            <div class="modal-content">
+                <div class="modal-body d-flex gap-3 align-items-start">
+                    <div class="session-modal-icon">⚠️</div>
+                    <div class="flex-grow-1">
+                        <h5 class="session-modal-title mb-2">Su sesión está a punto de expirar</h5>
+                        <p class="session-modal-text mb-3">Por seguridad, su sesión expirará en <strong id="session-timeout-countdown">15</strong> segundos. Para continuar, seleccione "Extender sesión".</p>
+                        <div class="text-end">
+                            <button type="button" class="btn session-extend-btn" id="extend-session-btn">Extender sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/session-timeout.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

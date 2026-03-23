@@ -1,0 +1,137 @@
+:root {
+    --welcome-red: #941c1c;
+    --welcome-bg: #f6f6f6;
+    --welcome-card: #ffffff;
+    --welcome-border: #e5e5e5;
+}
+
+body.welcome-page {
+    background: var(--welcome-bg);
+    min-height: 100vh;
+}
+
+.welcome-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-topbar {
+    background: var(--welcome-red);
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 24px;
+    color: #fff;
+}
+
+.welcome-help {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #f4f4f4;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    background: rgba(255,255,255,0.1);
+    cursor: pointer;
+}
+
+.welcome-shell {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px 72px;
+    overflow: hidden;
+}
+
+.welcome-illustration::before,
+.welcome-illustration::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    max-width: 520px;
+    height: 280px;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.05), rgba(0,0,0,0));
+    opacity: 0.6;
+}
+
+.welcome-illustration::before { left: -8%; }
+.welcome-illustration::after { right: -8%; }
+
+.welcome-card {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+    width: 100%;
+    background: var(--welcome-card);
+    border-radius: 12px;
+    padding: 32px 28px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    border: 1px solid var(--welcome-border);
+    text-align: center;
+}
+
+.welcome-icon {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background: #ffe9e9;
+    color: #c94c4c;
+    display: grid;
+    place-items: center;
+    font-size: 42px;
+    margin: 0 auto 16px;
+}
+
+.welcome-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.welcome-text {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.welcome-card .btn {
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 700;
+}
+
+.welcome-institution {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.welcome-institution .block {
+    width: 96px;
+    height: 48px;
+    border-radius: 6px;
+    background: #d9d9d9;
+    display: grid;
+    place-items: center;
+    color: #555;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 576px) {
+    .welcome-shell { padding: 16px 12px 64px; }
+    .welcome-institution { position: static; justify-content: center; margin-top: 12px; }
+    .welcome-illustration::before,
+    .welcome-illustration::after { display: none; }
+}
+

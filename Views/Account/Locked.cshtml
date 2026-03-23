@@ -1,0 +1,40 @@
+@model LoginEvaluation.Web.ViewModels.LockoutViewModel
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewData["Title"] = "Cuenta bloqueada";
+    ViewData["BodyClass"] = "lock-page";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/lock.css" asp-append-version="true" />
+}
+
+<div class="lock-layout">
+    <div class="lock-topbar">
+        <div class="lock-logo">CEPLAN</div>
+        <div class="lock-help" title="Ayuda">?</div>
+    </div>
+
+    <div class="lock-shell lock-illustration">
+        <div class="lock-card">
+            <div class="lock-icon">📞</div>
+            <div class="lock-title">Cuenta bloqueada temporalmente</div>
+            <div class="lock-text">
+                Has excedido el número máximo de intentos fallidos (5). Por seguridad, tu cuenta ha sido bloqueada durante 15 minutos.
+                @if (Model.LockoutEndUtc.HasValue)
+                {
+                    <div class="mt-2">Disponible después de: <strong>@Model.LockoutEndUtc.Value.ToLocalTime()</strong></div>
+                }
+            </div>
+            <div class="lock-actions d-grid">
+                <a class="btn btn-primary" asp-action="Login" asp-controller="Account">Volver al login</a>
+            </div>
+        </div>
+
+        <div class="lock-institution">
+            <div class="block">Logo</div>
+            <div class="block">PCM</div>
+            <div class="block">CND</div>
+        </div>
+    </div>
+</div>

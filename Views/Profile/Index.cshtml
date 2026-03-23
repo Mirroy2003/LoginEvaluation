@@ -1,0 +1,118 @@
+@model LoginEvaluation.Web.ViewModels.ProfileViewModel
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewData["Title"] = "Perfil";
+    ViewData["BodyClass"] = "profile-page";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
+}
+
+<div class="profile-layout">
+    <div class="profile-topbar">
+        <div class="profile-icon" title="Ayuda">?</div>
+        <div class="profile-icon" title="Notificaciones">🔔</div>
+        <div class="profile-user-meta">
+            <div class="text-end">
+                <div>@(Model?.Name ?? "Luis Eduardo")</div>
+                <div class="small">@(Model?.Username ?? "Operador")</div>
+            </div>
+            <div class="profile-icon" title="Usuario">👤</div>
+        </div>
+    </div>
+
+    <div class="profile-body">
+        <aside class="profile-sidebar">
+            <div class="side-icon">☰</div>
+            <div class="side-icon">🏠</div>
+            <div class="side-icon">🏢</div>
+            <div class="side-icon">🗂</div>
+            <div class="side-icon">🔍</div>
+        </aside>
+
+        <div class="profile-content">
+            <div class="profile-title">Perfil de usuario</div>
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">@(string.IsNullOrEmpty(Model?.Name) ? "MC" : Model.Name[..1].ToUpper())</div>
+                    <div class="profile-names">
+                        <div class="profile-name">@(Model?.Name ?? "Luis Eduardo")</div>
+                        <div class="profile-role">@(Model?.Username ?? "luis.eduardo.200325@gmail.com")</div>
+                        <div class="profile-entity">011 Ministerio de Salud</div>
+                    </div>
+                    <div class="ms-auto profile-status">@(Model?.IsActive == false ? "Inactivo" : "Activo")</div>
+                </div>
+
+                <div class="profile-tabs">
+                    <button class="profile-tab active" type="button">Información básica</button>
+                    <button class="profile-tab" type="button">Responsabilidades</button>
+                    <button class="profile-tab" type="button">Historial de responsabilidades</button>
+                </div>
+
+                <div class="profile-grid">
+                    <div class="profile-field">
+                        <label>Nombres</label>
+                        <div class="value">@(Model?.Name ?? "Luis Eduardo")</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Primer Apellido</label>
+                        <div class="value">Pérez</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Segundo Apellido</label>
+                        <div class="value">Lopez</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Tipo de Documento de Identidad</label>
+                        <div class="value">@(Model?.DocumentType ?? "DNI")</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>N.° de Documento de Identidad</label>
+                        <div class="value">@(Model?.Dni ?? "87654321")</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Fecha de nacimiento</label>
+                        <div class="value">15 / 04 / 1990</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Nacionalidad</label>
+                        <div class="value">Peruana</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Sexo</label>
+                        <div class="value">Masculino</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Correo electrónico principal</label>
+                        <div class="value">@(Model?.Username ?? "luis.eduardo.200325@gmail.com")</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Correo electrónico secundario <span class="text-muted">(Opcional)</span></label>
+                        <div class="value">—</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Teléfono móvil</label>
+                        <div class="value">+51 987 654 321</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Teléfono secundario <span class="text-muted">(Opcional)</span></label>
+                        <div class="value">—</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Tipo de contratación</label>
+                        <div class="value">CAS</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Fecha de contratación</label>
+                        <div class="value">09 / 03 / 2015</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/session-timeout.js" asp-append-version="true"></script>
+}
