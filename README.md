@@ -38,6 +38,6 @@ dotnet run --project LoginEvaluation
 ## Nota breve sobre el correo de notificación
 Cuando una cuenta se bloquea, se envía un correo usando la configuración SMTP definida en `appsettings.Development.json` (servicio `SmtpNotificationService`).
 
-## Autor o desarrollador
+## Desarrollador
 Luis Eduardo Lagos Aguilar
 
